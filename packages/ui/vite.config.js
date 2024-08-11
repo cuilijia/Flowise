@@ -39,7 +39,10 @@ export default defineConfig(async ({ mode }) => {
             open: true,
             proxy,
             port: process.env.VITE_PORT ?? 8080,
-            host: process.env.VITE_HOST
+            host: process.env.VITE_HOST,
+            historyApiFallback: {
+                index: '/gpt/index.html'
+            }
         }
     }
 })
