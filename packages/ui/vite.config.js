@@ -11,20 +11,22 @@ export default defineConfig(async ({ mode }) => {
         const serverPort = parseInt(serverEnv?.['PORT'] ?? 3000)
         if (!Number.isNaN(serverPort) && serverPort > 0 && serverPort < 65535) {
             proxy = {
-                '/api': {
-                    target: `http://${serverHost}:${serverPort}/gpt`,
-                    changeOrigin: true
+                '/gpt/api': {
+                    target: `http://${serverHost}:${serverPort}`,
+                    changeOrigin: true,
+                    rewrite: (path) => path.replace(/^\/gpt/, '')
                 },
-                '/socket.io': {
-                    target: `http://${serverHost}:${serverPort}/gpt`,
-                    changeOrigin: true
+                '/gpt/socket.io': {
+                    target: `http://${serverHost}:${serverPort}`,
+                    changeOrigin: true,
+                    rewrite: (path) => path.replace(/^\/gpt/, '')
                 }
             }
         }
     }
     dotenv.config()
     return {
-        base: '/gpt/',
+        base: '/gpt/', // 添加这行
         plugins: [react()],
         resolve: {
             alias: {
@@ -39,10 +41,7 @@ export default defineConfig(async ({ mode }) => {
             open: true,
             proxy,
             port: process.env.VITE_PORT ?? 8080,
-            host: process.env.VITE_HOST,
-            historyApiFallback: {
-                index: '/gpt/index.html'
-            }
+            host: process.env.VITE_HOST
         }
     }
 })
