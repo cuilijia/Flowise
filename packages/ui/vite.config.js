@@ -12,11 +12,11 @@ export default defineConfig(async ({ mode }) => {
         if (!Number.isNaN(serverPort) && serverPort > 0 && serverPort < 65535) {
             proxy = {
                 '/api': {
-                    target: `http://${serverHost}:${serverPort}`,
+                    target: `http://${serverHost}:${serverPort}/gpt`,
                     changeOrigin: true
                 },
                 '/socket.io': {
-                    target: `http://${serverHost}:${serverPort}`,
+                    target: `http://${serverHost}:${serverPort}/gpt`,
                     changeOrigin: true
                 }
             }
@@ -24,6 +24,7 @@ export default defineConfig(async ({ mode }) => {
     }
     dotenv.config()
     return {
+        base: '/gpt/',
         plugins: [react()],
         resolve: {
             alias: {
