@@ -11,15 +11,13 @@ export default defineConfig(async ({ mode }) => {
         const serverPort = parseInt(serverEnv?.['PORT'] ?? 3000)
         if (!Number.isNaN(serverPort) && serverPort > 0 && serverPort < 65535) {
             proxy = {
-                '/gpt/api': {
+                '/api': {
                     target: `http://${serverHost}:${serverPort}`,
-                    changeOrigin: true,
-                    rewrite: (path) => path.replace(/^\/gpt/, '')
+                    changeOrigin: true
                 },
-                '/gpt/socket.io': {
+                '/socket.io': {
                     target: `http://${serverHost}:${serverPort}`,
-                    changeOrigin: true,
-                    rewrite: (path) => path.replace(/^\/gpt/, '')
+                    changeOrigin: true
                 }
             }
         }

@@ -15,23 +15,23 @@ const CanvasRoutes = {
     element: <MinimalLayout />,
     children: [
         {
-            path: '/canvas',
+            path: 'canvas',
             element: <Canvas />
         },
         {
-            path: '/canvas/:id',
+            path: 'canvas/:id',
             element: <Canvas />
         },
         {
-            path: '/agentcanvas',
+            path: 'agentcanvas',
             element: <Canvas />
         },
         {
-            path: '/agentcanvas/:id',
+            path: 'agentcanvas/:id',
             element: <Canvas />
         },
         {
-            path: '/marketplace/:id',
+            path: 'marketplace/:id',
             element: <MarketplaceCanvas />
         }
     ]

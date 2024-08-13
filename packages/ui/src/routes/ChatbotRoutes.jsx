@@ -14,7 +14,7 @@ const ChatbotRoutes = {
     element: <MinimalLayout />,
     children: [
         {
-            path: '/chatbot/:id',
+            path: 'chatbot/:id', // 保持相对路径
             element: <ChatbotFull />
         }
     ]

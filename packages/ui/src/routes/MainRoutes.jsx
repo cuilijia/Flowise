@@ -1,5 +1,4 @@
 import { lazy } from 'react'
-
 // project imports
 import MainLayout from '@/layout/MainLayout'
 import Loadable from '@/ui-component/loading/Loadable'
@@ -47,59 +46,59 @@ const MainRoutes = {
             element: <Chatflows />
         },
         {
-            path: '/chatflows',
+            path: 'chatflows',
             element: <Chatflows />
         },
         {
-            path: '/agentflows',
+            path: 'agentflows',
             element: <Agentflows />
         },
         {
-            path: '/marketplaces',
+            path: 'marketplaces',
             element: <Marketplaces />
         },
         {
-            path: '/apikey',
+            path: 'apikey',
             element: <APIKey />
         },
         {
-            path: '/tools',
+            path: 'tools',
             element: <Tools />
         },
         {
-            path: '/assistants',
+            path: 'assistants',
             element: <Assistants />
         },
         {
-            path: '/credentials',
+            path: 'credentials',
             element: <Credentials />
         },
         {
-            path: '/variables',
+            path: 'variables',
             element: <Variables />
         },
         {
-            path: '/document-stores',
+            path: 'document-stores',
             element: <Documents />
         },
         {
-            path: '/document-stores/:id',
+            path: 'document-stores/:id',
             element: <DocumentStoreDetail />
         },
         {
-            path: '/document-stores/chunks/:id/:id',
+            path: 'document-stores/chunks/:id/:id',
             element: <ShowStoredChunks />
         },
         {
-            path: '/document-stores/:id/:name',
+            path: 'document-stores/:id/:name',
             element: <LoaderConfigPreviewChunks />
         },
         {
-            path: '/document-stores/vector/:id',
+            path: 'document-stores/vector/:id',
             element: <VectorStoreConfigure />
         },
         {
-            path: '/document-stores/query/:id',
+            path: 'document-stores/query/:id',
             element: <VectorStoreQuery />
         }
     ]
