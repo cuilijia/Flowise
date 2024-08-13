@@ -1,5 +1,5 @@
 const config = {
-    basename: '/gpt',
+    basename: '',
     defaultPath: '/chatflows',
     fontFamily: `'Roboto', sans-serif`,
     borderRadius: 12

@@ -71,7 +71,7 @@ import leadsApi from '@/api/lead'
 import useApi from '@/hooks/useApi'
 
 // Const
-import { baseURL, maxScroll } from '@/store/constant'
+import { baseHost, basePath, baseURL, maxScroll } from '@/store/constant'
 import { enqueueSnackbar as enqueueSnackbarAction, closeSnackbar as closeSnackbarAction } from '@/store/actions'
 
 // Utils
@@ -793,7 +793,9 @@ export const ChatMessage = ({ open, chatflowid, isAgentCanvas, isDialog, preview
             }
 
             // SocketIO
-            socket = socketIOClient(baseURL)
+            socket = socketIOClient(baseHost, {
+                path: basePath + '/socket.io'
+            })
 
             socket.on('connect', () => {
                 setSocketIOClientId(socket.id)
